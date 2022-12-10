@@ -1,0 +1,12 @@
+{% extends 'blog_app/base.html' %} {% block content %}
+<div class="row mt-4">
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4">
+    <h4 class="text-center alert alert-info">User Profile</h4>
+    <form action="" method="POST" class="">{% csrf_token %} {{form.as_p}}</form>
+    <a href="#" class="btn btn-info btn-block">Back to Home</a>
+  </div>
+
+  <div class="col-sm-4"></div>
+</div>
+{% endblock content %}

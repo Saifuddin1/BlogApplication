@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog App</title>
+    <link rel="stylesheet" href="{% static 'enroll/css/bootstrap.css' %}" />
+  </head>
+  <body class="">
+    <div class="float-container">
+      <nav class="navbar navbar-expand-lg bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand text-info" href="{% url 'get_post' %}"
+            >BlogApp</a
+          >
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a
+                  class="nav-link active text-info"
+                  aria-current="page"
+                  href="{% url 'get_post' %}"
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-info" href="{% url 'about' %}">About</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link text-info" href="{% url 'contact' %}"
+                  >Contact</a
+                >
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link text-info" href="{% url 'create_post' %}"
+                  >Create Post</a
+                >
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link text-info" href="{% url 'get_post' %}"
+                  >All Posts</a
+                >
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link text-info" href="{% url 'logout' %}"
+                  >Logout</a
+                >
+              </li>
+              <li>
+                <div class="dropdown">
+                  <button
+                    class="btn btn-dark text-info dropdown-toggle"
+                    type="button"
+                    id="dropdownMenuButton"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    User
+                  </button>
+                  <div
+                    class="dropdown-menu"
+                    aria-labelledby="dropdownMenuButton"
+                  >
+                    <a class="dropdown-item" href="{% url 'profile' %}"
+                      >Profile</a
+                    >
+                    <a class="dropdown-item" href="{% url 'edit' %}"
+                      >Edit Profile</a
+                    >
+                    <a class="dropdown-item" href="{% url 'logout' %}"
+                      >Logout</a
+                    >
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      {% block content %} {% endblock content %}
+    </div>
+    <script src="{% static 'enroll/js/jquery.js' %}"></script>
+    <script src="{% static 'enroll/js/popper.js' %}"></script>
+    <script src="{% static 'enroll/js/bootstrap.js' %}"></script>
+  </body>
+</html>

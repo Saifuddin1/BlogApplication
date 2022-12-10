@@ -1,0 +1,74 @@
+{% extends 'blog_app/base.html' %} {% block content %}
+<div class="row mt-4">
+  <div class="col-sm-2"></div>
+  <div class="col-sm-8">
+    {% if posts %}
+    <div class="row">
+      <div class="col-md-6">
+        <a href="{% url 'create_post' %}"
+          ><h4 class="text-center text-info">Create Post</h4></a
+        >
+      </div>
+      <div class="col-md-6">
+        <h4 class="text-center text-info">All Posts are</h4>
+      </div>
+    </div>
+
+    {% for post in posts %}
+    <div class="card">
+      <div class="card-header">
+        <div class="row">
+          <div class="col-md-6">
+            <span class="text-info h5">Created at</span>
+            <span class="h6">{{post.created_at}}</span>
+          </div>
+          <div class="col-md-6 text-right">
+            <a href="{% url 'post_detail' post.id %}">See Post Detail</a>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title text-info">{{post.title|upper}}</h5>
+        <p class="card-text">{{post.body}}</p>
+        <div class="row">
+          <div class="col-md-6">
+            <a
+              href="{% url 'update_post' post.id %}"
+              class="btn btn-warning btn-sm"
+              >Update</a
+            >
+          </div>
+          <div class="col-md-6 text-right">
+            <form
+              action="{% url 'delete_post' post.id %}"
+              method="post"
+              class="d-inline"
+            >
+              {% csrf_token %}
+              <input
+                type="submit"
+                class="btn btn-danger btn-sm"
+                value="Delete"
+              />
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %} {% else %}
+
+    <div class="row">
+      <div class="col-md-6">
+        <a href="{% url 'create_post' %}"
+          ><h4 class="text-center text-info">Create Post</h4></a
+        >
+      </div>
+      <div class="col-md-6">
+        <h4 class="text-center text-info">No post is available</h4>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+  <div class="col-sm-2"></div>
+</div>
+{% endblock content %}

@@ -1,0 +1,15 @@
+{% extends 'blog_app/base.html' %} {% block content %}
+<div class="row mt-4">
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4">
+    <div class="card" style="width: 30rem">
+      <div class="card-body">
+        <h5 class="card-title">Created By {{user.user_name}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{post.title}}</h6>
+        <p class="card-text">{{post.body}}</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4"></div>
+</div>
+{% endblock content %}
